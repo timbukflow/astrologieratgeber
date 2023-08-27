@@ -1,1 +1,1 @@
-# funk-global-risk-consensus
+# Astrologieratgeber
