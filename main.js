@@ -20,5 +20,30 @@ function generateStars(numStars) {
 
 generateStars(300);
 
+// Angebot
+const angebotBtn = $("#angebotBtn");
+const mainContent = $(".maincontent");
+const angebotContent = $(".angebotnav");
+let isMainContentVisible = true;
+
+angebotBtn.click(function() {
+  if (isMainContentVisible) {
+    angebotBtn.addClass("activBtn")
+    mainContent.addClass("fade");
+    angebotContent.stop(true,true).fadeIn(800);
+  } else {
+    angebotBtn.removeClass("activBtn")
+    mainContent.removeClass("fade");
+    angebotContent.stop(true,true).fadeOut(800);
+  }
+  isMainContentVisible = !isMainContentVisible;
+});
+
+// Nav responsiv
+$(".burger-icon").click(function() {
+  $(this).toggleClass("active");
+  $(".nav-list").toggleClass("active");
+});
+
 
 });
