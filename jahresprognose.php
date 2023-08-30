@@ -51,7 +51,7 @@
 
             <?php require_once('form.php'); ?>
 
-            <form id="contact" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" novalidate onsubmit="preventScrollToTop(event);">
+            <form id="contact" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" novalidate>
                 
                 <input type="hidden" name="anmeldung_typ" value="jahresprognose">           
 
@@ -106,22 +106,18 @@
         </div>
         
     </section>
-
+    
     <script>
-        function preventScrollToTop(event) {
-        event.preventDefault();
-        }
+      function showPopup() {
+          document.getElementById('popup').style.display = 'block';
+      }
+      document.getElementById('closePopup').addEventListener('click', function() {
+          document.getElementById('popup').style.display = 'none';
+      });
 
-        function showPopup() {
-            document.getElementById('popup').style.display = 'block';
-        }
-        document.getElementById('closePopup').addEventListener('click', function() {
-            document.getElementById('popup').style.display = 'none';
-        });
-
-        <?php if (isset($success)) { ?>
-            showPopup();
-        <?php } ?>
+      <?php if (isset($success)) { ?>
+          showPopup();
+      <?php } ?>
     </script>
       
     
