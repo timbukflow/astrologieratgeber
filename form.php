@@ -67,8 +67,6 @@
         $errors["telefon"] = "Telefonnummer ist erforderlich";
     } else {
         $telefon = $_POST["telefon"];
-        
-        // Entferne Leerzeichen, Klammern, Bindestriche und andere Sonderzeichen aus der Telefonnummer
         $telefon = preg_replace('/[^0-9]/', '', $telefon);
         
         if (strlen($telefon) < 10) {
@@ -80,6 +78,25 @@
 }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        if (isset($_POST["anmeldung_typ"])) {
+            $anmeldung_typ = $_POST["anmeldung_typ"];
+            $anmeldung_bezeichnung = "";
+    
+            if ($anmeldung_typ == "geburtshoroskop") {
+                $anmeldung_bezeichnung = "Geburtshoroskop";
+                // Hier die Aktion für die Ball-Anmeldung
+                // ...
+            } elseif ($anmeldung_typ == "sonne") {
+                $anmeldung_bezeichnung = "Sonne-Anmeldung";
+                // Hier die Aktion für die Sonne-Anmeldung
+                // ...
+            } elseif ($anmeldung_typ == "tee") {
+                $anmeldung_bezeichnung = "Tee-Anmeldung";
+                // Hier die Aktion für die Tee-Anmeldung
+                // ...
+            }
+        }
         $errors = validateForm();
 
         if (empty($errors)) {
@@ -89,7 +106,7 @@
                 if (is_array($value)) {
                     $value = implode(", ", $value);
                 }
-                $message_body = "Anmeldung zur Veranstaltung\n\n";
+                $message_body = "Anmeldung zur Veranstaltung: " . $anmeldung_bezeichnung . "\n\n";
                 $message_body .= "Vorname: " . sanitizeInput($vorname) . "\n";
                 $message_body .= "Name: " . sanitizeInput($name) . "\n";
                 $message_body .= "Geburtsort: " . sanitizeInput($geburtsort) . "\n";
@@ -100,8 +117,8 @@
             }
 
             $headers = "From: info@astrologieratgeber.ch";
-            $to = "info@astrologieratgeber.ch";
-            $subject = "Funk Gruppe Event | KMU Spotlight 2023";
+            $to = "ivoschwizer@gmail.com";
+            $subject = "Anmeldung";
             
             $headers .= "\r\nContent-Type: text/plain; charset=utf-8\r\n";
             
