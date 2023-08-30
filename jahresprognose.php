@@ -91,7 +91,7 @@
                 </fieldset>
 
                 <fieldset>
-                <button name="submit" type="button" id="contact-submit" data-submit="...Sending" onclick="submitForm()">Jahresprognose Buchen</button>
+                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Jahresprognose Buchen</button>
                 </fieldset>
                 </form>
 
@@ -106,26 +106,7 @@
         </div>
         
     </section>
-    
     <script>
-        function submitForm() {
-        var isValid = validateForm(); // Führe die Überprüfung durch
-        
-        if (isValid) {
-            document.getElementById('contact').submit(); // Sende das Formular ab
-        } else {
-            scrollToFirstError();
-        }
-    }
-
-    function scrollToFirstError() {
-        var firstErrorField = document.querySelector('.error:not(:empty)'); // Finde das erste Feld mit einer Fehlermeldung
-        
-        if (firstErrorField) {
-            firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Scrolle zum ersten fehlerhaften Feld
-        }
-    }
-    
       function showPopup() {
           document.getElementById('popup').style.display = 'block';
       }
