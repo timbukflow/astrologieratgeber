@@ -106,6 +106,19 @@
         </div>
         
     </section>
+    
+    <script>
+      function showPopup() {
+          document.getElementById('popup').style.display = 'block';
+      }
+      document.getElementById('closePopup').addEventListener('click', function() {
+          document.getElementById('popup').style.display = 'none';
+      });
+
+      <?php if (isset($success)) { ?>
+          showPopup();
+      <?php } ?>
+    </script>
       
     
     <?php require_once 'nav.php'; ?>

@@ -87,8 +87,8 @@
                 $anmeldung_bezeichnung = "Geburtshoroskop";
                 // Hier die Aktion für die Ball-Anmeldung
                 // ...
-            } elseif ($anmeldung_typ == "sonne") {
-                $anmeldung_bezeichnung = "Sonne-Anmeldung";
+            } elseif ($anmeldung_typ == "jahresprognose") {
+                $anmeldung_bezeichnung = "Jahresprognose";
                 // Hier die Aktion für die Sonne-Anmeldung
                 // ...
             } elseif ($anmeldung_typ == "tee") {
@@ -137,3 +137,4 @@
         }
     }
 ?>
+
