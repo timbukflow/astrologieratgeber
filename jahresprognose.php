@@ -51,7 +51,7 @@
 
             <?php require_once('form.php'); ?>
 
-            <form id="contact" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" novalidate onsubmit="return submitForm();">
+            <form id="contact" method="post" action="#contact" novalidate>
                 
                 <input type="hidden" name="anmeldung_typ" value="jahresprognose">           
 
@@ -107,17 +107,6 @@
         
     </section>
     <script>
-        function submitForm() {
-        var isValid = validateForm(); // Führe die Überprüfung durch
-        
-        if (isValid) {
-            return true; // Das Formular wird abgesendet
-        } else {
-            scrollToFirstError();
-            return false; // Das Formular wird nicht abgesendet
-        }
-    }   
-    
       function showPopup() {
           document.getElementById('popup').style.display = 'block';
       }
