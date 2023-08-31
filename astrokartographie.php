@@ -3,47 +3,44 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# place: http://ogp.me/ns/place#">
 
     <meta charset="UTF-8">
-    <title>Astrologieratgeber | Jahresprognose</title>
+    <title>Astrologieratgeber | Astrokartographie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Entdecken Sie die Chancen und Herausforderungen des bevorstehenden Jahres mit der astrologischen Jahresprognose. Erfahren Sie wertvolle Einblicke in verschiedene Lebensbereiche, basierend auf Himmelskonstellationen und kosmischen Einflüssen. Bereiten Sie sich auf kommende Möglichkeiten vor und meistern Sie potenzielle Herausforderungen mit Vertrauen und Klarheit.">
-    <meta name="keywords" content="Astrologische Jahresprognose, Chancen, Herausforderungen, Planetenpositionen, kosmische Einflüsse, Lebensbereiche, individuelle Prognose, beruflich, Beziehungen, Finanzen, persönliches Wachstum, Orientierung, Veränderungen, Vertrauen, Klarheit, Möglichkeiten, Bewältigung">
-    <link rel="canonical" href="https://astrologieratgeber.ch/jahresprognose" />
+    <meta name="description" content="Erfahren Sie mehr über die faszinierende Welt der Astrokartographie oder Standortastrologie, bei der die Planeten auf dem irdischen Horizont in Bezug auf den Geborenen analysiert werden. Entdecken Sie, wie das Standorthoroskop Einblicke in die astrologischen Veränderungen, Vor- und Nachteile von Land, Stadt und Wohnort bietet.">
+    <meta name="keywords" content="Astrokartographie, Standortastrologie, Standorthoroskop, irdischer Horizont, Planetenkonstellationen, Himmelsrichtungen, astrologische Veränderung, Vor- und Nachteile, Landanalyse, Stadtbetrachtung, Wohnortdeutung">
+    <link rel="canonical" href="https://astrologieratgeber.ch/astrokartographie" />
     <?php require_once 'head.php'; ?>
 </head>
 
 <body>
     <section class="maincontent subpage">
-        <h1>Jahresprognose</h1>
+        <h1>Astrokartographie</h1>
         <p>
-            Die astrologische Jahresprognose wirft einen einzigartigen Blick auf das bevorstehende Jahr und enthüllt die Chancen und Herausforderungen, die Sie erwarten. Basierend auf Planetenpositionen und kosmischen Einflüssen bietet diese Prognose wertvolle Einblicke in verschiedene Lebensbereiche.
-        </p> 
-        <p>
-            Ich analysiere sorgfältig die Himmelskonstellationen, um eine individuelle Prognose für Sie zu erstellen. Sie erfahren, welche Lebensaspekte im kommenden Jahr im Fokus stehen, sei es beruflich, in Beziehungen, Finanzen oder persönlichem Wachstum. Diese Prognose ermöglicht es Ihnen, sich auf kommende Möglichkeiten vorzubereiten und potenzielle Herausforderungen besser zu bewältigen.
+            Die Astrokartographie oder Standortastrologie betrachtet die Planeten auf dem irdischen Horizont, wobei der Geborene in der Mitte der Betrachtung steht und dabei geschaut wird auf welche Weise die Planeten von ihm in verschiedenen Himmelsrichtungen strahlen. Das Standorthoroskop ermöglicht damit eine Betrachtung der astrologischen Veränderung und deren Vor- und Nachteile von Land, Stadt sowie Wohnen. 
         </p>
-        <p>
-            Ob Sie Orientierung suchen oder Veränderungen besser verstehen wollen – die astrologische Jahresprognose liefert wertvolle Erkenntnisse, um das Jahr mit Vertrauen und Klarheit zu gestalten und es bestmöglich zu nutzen.
-        </p>
+        <div class="astromap">
+            <img src="img/astrokartographie.svg" alt="astrokartographie map">
+        </div> 
         
         <div class="description">
             <p class="line gold dprice">
-                <strong>Jahresprognose</strong>
+                <strong>Astrokartographie</strong>
                 Preis: 245 Franken
             </p>
             <p class="line dwhat">
                 <strong>Was erwartet Sie</strong> 
-                Als Ihr Astrologe studiere und analysiere ich eine Stunde Ihre Jahresprognose in Bezug auf bedeutende Konstellationen für ein Jahr im voraus. Anschliessend nehmen wir uns 1 Stunde Zeit für eine persönliche Besprechung, die auf Wunsch als "Voice Record" festgehalten werden kann. Diese Session kann auch bequem online über Plattformen wie Zoom, Teams oder Skype abgehalten werden.
+                Als Ihr Astrologe studiere und analysiere ich eine Stunde Ihre Astrokartographie in Bezug auf Ihre bedeutendsten Standorte oder Ihr spezifisches Anliegen. Anschliessend nehmen wir uns 1 Stunde Zeit für eine persönliche Besprechung, die auf Wunsch als "Voice Record" festgehalten werden kann. Diese Session kann auch bequem online über Plattformen wie Zoom, Teams oder Skype abgehalten werden.
             </p>
         </div>
 
         <div class="booking" id="form">
             <p class="gold">
-                <strong>Jahresprognose Buchen</strong>
-                Bitte verwenden Sie das Formular, um Ihre Jahresprognose zu buchen. Innerhalb von drei Tagen werde ich mich mit Ihnen in Verbindung setzen, um einen geeigneten Termin in den nächsten drei Wochen zu vereinbaren.
+                <strong>Astrokartographie Buchen</strong>
+                Bitte verwenden Sie das Formular, um Ihre Astrokartographie zu buchen. Innerhalb von drei Tagen werde ich mich mit Ihnen in Verbindung setzen, um einen geeigneten Termin in den nächsten drei Wochen zu vereinbaren.
             </p>
 
             <?php require_once('form.php'); ?>
             <form id="contact" method="post" action="#form" novalidate>
-                <input type="hidden" name="anmeldung_typ" value="jahresprognose">           
+                <input type="hidden" name="anmeldung_typ" value="astrokartographie">           
                 <fieldset>
                     <input placeholder="Vorname&#42;" type="text" name="vorname" value="<?= htmlspecialchars($vorname) ?>" tabindex="1">
                     <span class="error"><?= isset($errors["vorname"]) ? htmlspecialchars($errors["vorname"]) : htmlspecialchars($vorname_error) ?></span>
@@ -73,13 +70,13 @@
                     <span class="error"><?= isset($errors["telefon"]) ? htmlspecialchars($errors["telefon"]) : htmlspecialchars($telefon_error) ?></span>
                 </fieldset>
                 <fieldset>
-                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Jahresprognose buchen</button>
+                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Astrokartographie buchen</button>
                 </fieldset>
             </form>
         </div>    
     </section>
     <div id="popup" class="popup">
-        <h3>Vielen Dank für Ihre Buchung der Jahresprognose!</h3> 
+        <h3>Vielen Dank für Ihre Buchung der Astrokartographie!</h3> 
         <p>
             Innerhalb von drei Tagen werde ich mich mit Ihnen in Verbindung setzen, um einen geeigneten Termin in den nächsten drei Wochen zu vereinbaren.<br><br>
             Stefan Haas <br>

@@ -8,6 +8,7 @@
   --fontwhite: #d4d4d4;
 
   --fonttitle: 60px;
+  --fontsubtitle: 30px;
   --fonttext: 20px;
   --fontsmall: 18px;
 }
@@ -29,10 +30,10 @@ body {
 h1, h2, h3, p, a, li, input, button, .error {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 20px;
+  font-size: var(--fonttext);
   color: var(--fontwhite);
   -webkit-font-smoothing: antialiased;
-  letter-spacing: 0.45px;
+  letter-spacing: 0.25px;
   line-height: 1.75rem;
   text-decoration: none;
   hyphens: auto;
@@ -46,9 +47,15 @@ h1 {
   font-weight: 300;
 }
 
+h3 {
+  font-size: var(--fontsubtitle);
+  margin-top: 0px;
+  line-height: 1.3em;
+}
+
 strong {
   display: block;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 
@@ -233,12 +240,13 @@ nav {
   display: flex;
   height: 100vh;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
 }
 
 .intro h1 {
   margin-left: 50%;
+  margin-top: 100px;
   padding-right: 50px;
   font-size: var(--fonttext);
   font-weight: 400;
@@ -248,7 +256,6 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 7%;
 }
 
 .innercirclesun {
@@ -327,9 +334,9 @@ left: 0;
 }
 
 /*----------------------------------
-  Unterseiten Horoskope
+  Subpage Horoskope
 -----------------------------------*/
-.descriptioncont {
+.description {
   display: flex;
   margin-top: 75px;
 }
@@ -342,13 +349,72 @@ left: 0;
   width: 65%;
 }
 
-.bookingcont {
+.booking {
   margin-top: 75px;
   padding: 15px 30px 40px;
   border: 2px solid var(--yellowgold);
   border-radius: 15px;
 }
 
+.astromap {
+  margin: 100px 40px 0;
+}
+
+/*----------------------------------
+    Preise
+-----------------------------------*/
+.preiscontainer {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 80px 0 160px;
+}
+.preislayer {
+  padding: 25px 30px 30px;
+  border: 2px solid var(--yellowgold);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-basis: calc(50% - 20px);
+  justify-content: space-between;
+}
+.preislayer h3,
+.preislayer p  {
+  margin: 0;
+}
+.preislayer p span {
+  padding-top: 50px;
+}
+.payBtncont {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+.payBtn {
+  cursor: pointer;
+  background-color: var(--yellowgold);
+  border-radius: 50px;
+  padding: 15px 25px;
+  color: var(--skydark);
+  width: 100%;
+  text-align: center;
+  border: 2px solid var(--yellowgold);
+  line-height: 1;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.payBtn.bBtn {
+  border: 2px solid var(--fontwhite);
+  background: transparent;
+  color: var(--fontwhite);
+}
+.payBtn:hover {
+  background-color: var(--yellowlight);
+}
+.payBtn.bBtn:hover {
+  background-color: #ffffff50;
+}
 
 /*----------------------------------
     Contactform
@@ -368,6 +434,7 @@ input, button {
   width: 100%;
   box-shadow: none;
   border: none;
+  color: var(--yellowgold);
   border-bottom: 2px solid var(--yellowgold);
   background-color: transparent;
   margin-bottom: 5px;
@@ -410,16 +477,10 @@ input:focus {
 :-ms-input-placeholder {color: rgba(212, 212, 212, 0.6);}
 
 .error {
-  color: var(--yellowgold);
-  font-size: 15px;
-  line-height: 1;
-  padding-left: 15px
-}
-
-.success {
-  color: var(--funkgreen);
-  text-align: left;
-  padding: 10px;
+  color: #ce30ff;
+  font-size: 16px;
+  line-height: 1.5;
+  padding-left: 10px
 }
 
 .popup {
@@ -427,46 +488,40 @@ input:focus {
   position: fixed;
   top: 50%;
   left: 50%;
+  width: 500px;
   transform: translate(-50%, -50%);
-  background-color: var(--funkgreen);
+  background-color: var(--yellowgold);
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
   z-index: 9999;
 }
 
-.popup h1, .popup p {
-  color: white;
+.popup h3, .popup p, .popup button {
+  color: var(--skydark);
 }
 
 #closePopup {
   background-color: white ;
-  color: var(--funkgreen);
   width: 100%;
   margin-top: 25px;
   text-align: center;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.homebutton {
-  position: absolute;
-  background-color: transparent;
-  left: 5%;
-  bottom: 50px;
-  margin: 15px;
-  display: inline-block;
-  border: 2px solid white;
-  border-radius: 5px;
-  padding: 10px 20px;
-  z-index: 2;
-}
-.homebutton a {
-  text-decoration: none;
-  color: white;
+#closePopup:hover {
+  background-color: var(--yellowlight);
 }
 
-
-
-
+.blurpop {
+    filter: blur(5px); 
+}
+.freeze {
+  position: fixed;
+  margin: 0 auto;
+  width: 100%;
+  background: var(--skydark);
+}
 
 
 /*----------------------------------
@@ -521,18 +576,19 @@ footer {
   display: flex;
   z-index: 2;
   position: relative;
-  justify-content: flex-start;
+  justify-content: center;
   flex-direction: row;
-  gap: 60px;
-  margin: 30px;
-  padding-top: 20px;
-  border-top: 1px solid var(--yellowgold);
+  gap: 40px;
+  margin: 50px auto 30px;
+  max-width: 900px;
 }
 
 footer a {
   display: block;
   color: var(--yellowgold);
   font-size: var(--fontsmall);
+  border-left: solid 2px var(--yellowgold);
+  padding-left: 15px;
 }
 
 /*----------------------------------

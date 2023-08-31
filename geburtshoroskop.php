@@ -21,7 +21,7 @@
             Indem es Licht auf verborgene Muster wirft, kann Ihr Geburtshoroskop Ihnen helfen, sich selbst besser zu verstehen, Potenziale zu entfalten und Herausforderungen zu meistern. Es ist eine Karte zu Ihrem Innersten und ein Instrument zur Selbstentdeckung.
         </p>
         
-        <div class="descriptioncont">
+        <div class="description">
             <p class="line gold dprice">
                 <strong>Geburtshoroskop</strong>
                 Preis: 590 Franken
@@ -32,7 +32,7 @@
             </p>
         </div>
 
-        <div class="descriptioncont">
+        <div class="description">
             <p class="line gold dprice">
                 <strong>Geburtshoroskop <br> Spezial</strong>
                 Preis: 690 Franken <br>
@@ -43,72 +43,90 @@
             </p>
         </div>
 
-        <div class="bookingcont">
+        <div class="booking" id="form">
             <p class="gold">
                 <strong>Geburtshoroskop Buchen</strong>
-                Bitte verwenden Sie das Formular, um Ihr Geburtshoroskop zu buchen. Innerhalb von drei Tagen werde ich mich mit Ihnen in Verbindung setzen, um einen geeigneten Termin innerhalb der nächsten drei Wochen zu vereinbaren.
+                Bitte verwenden Sie das Formular, um Ihr Geburtshoroskop zu buchen. Innerhalb von drei Tagen werde ich mich mit Ihnen in Verbindung setzen, um einen geeigneten Termin in den nächsten drei Wochen zu vereinbaren.
             </p>
 
             <?php require_once('form.php'); ?>
-
-            <form id="contact" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" novalidate>
-                
+            <form id="contact" method="post" action="#form" novalidate>
                 <input type="hidden" name="anmeldung_typ" value="geburtshoroskop">           
-
                 <fieldset>
                     <input placeholder="Vorname&#42;" type="text" name="vorname" value="<?= htmlspecialchars($vorname) ?>" tabindex="1">
                     <span class="error"><?= isset($errors["vorname"]) ? htmlspecialchars($errors["vorname"]) : htmlspecialchars($vorname_error) ?></span>
                 </fieldset>
-
                 <fieldset>
                     <input placeholder="Name&#42;" type="text" name="name" value="<?= htmlspecialchars($name) ?>" tabindex="2">
                     <span class="error"><?= isset($errors["name"]) ? htmlspecialchars($errors["name"]) : htmlspecialchars($name_error) ?></span>
                 </fieldset>
-
                 <fieldset>
                     <input placeholder="Geburtsort&#42;" type="text" name="geburtsort" value="<?= htmlspecialchars($geburtsort) ?>" tabindex="3">
                     <span class="error"><?= isset($errors["geburtsort"]) ? htmlspecialchars($errors["geburtsort"]) : htmlspecialchars($geburtsort_error) ?></span>
                 </fieldset>
-
                 <fieldset>
                     <input placeholder="Geburtsdatum (01.01.2001)&#42; " type="text" name="geburtsdatum" value="<?= htmlspecialchars($geburtsdatum) ?>" tabindex="4">
                     <span class="error"><?= isset($errors["geburtsdatum"]) ? htmlspecialchars($errors["geburtsdatum"]) : htmlspecialchars($geburtsdatum_error) ?></span>
                 </fieldset>
-
                 <fieldset>
                     <input placeholder="Geburtszeit (von amtlichem Geburtsschein)&#42; " type="text" name="geburtszeit" value="<?= htmlspecialchars($geburtszeit) ?>" tabindex="5">
                     <span class="error"><?= isset($errors["geburtszeit"]) ? htmlspecialchars($errors["geburtszeit"]) : htmlspecialchars($geburtszeit_error) ?></span>
                 </fieldset>
-
                 <fieldset>
                     <input placeholder="Email&#42;" type="text" name="email" value="<?= htmlspecialchars($email) ?>" tabindex="6">
                     <span class="error"><?= isset($errors["email"]) ? htmlspecialchars($errors["email"]) : htmlspecialchars($email_error) ?></span>
                 </fieldset>
-
                 <fieldset>
                     <input placeholder="Telefon&#42;" type="text" name="telefon" value="<?= htmlspecialchars($telefon) ?>" tabindex="7">
                     <span class="error"><?= isset($errors["telefon"]) ? htmlspecialchars($errors["telefon"]) : htmlspecialchars($telefon_error) ?></span>
                 </fieldset>
-
                 <fieldset>
-                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Geburtshoroskop Buchen</button>
+                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Geburtshoroskop buchen</button>
                 </fieldset>
-                </form>
-
-                <div id="popup" class="popup">
-                <h1>Vielen Dank für Ihr Interesse!</h1> 
-                <p>Ihre An- oder Abmeldung haben wir erhalten. Eine persönliche Bestätigung Ihrer Anmeldung erhalten Sie in den nächsten Tagen per E-Mail.<br><br>
-                Herzliche Grüsse <br> 
-                Jonas Müller <br>
-                Leiter Niederlassung Bern</p>
-                <button id="closePopup">Alles klar!</button>
-                </div>
-        </div>
-        
+            </form>
+        </div>    
     </section>
-      
-    
+    <div id="popup" class="popup">
+        <h3>Vielen Dank für Ihre Buchung des Geburtshoroskops!</h3> 
+        <p>
+            Innerhalb von drei Tagen werde ich mich mit Ihnen in Verbindung setzen, um einen geeigneten Termin in den nächsten drei Wochen zu vereinbaren.
+            <br><br>
+            Stefan Haas <br>
+            Astrologieratgeber
+        </p>
+        <button id="closePopup">Schliessen</button>
+    </div>
+    <script>
+        function toggleBlur() {
+            var subpage = document.querySelector('.subpage');
+            subpage.classList.toggle('blurpop');
+            
+            var body = document.body;
+            body.classList.toggle('freeze');
+        }
+
+        function showPopup() {
+            var popup = document.getElementById('popup');
+            popup.style.display = 'block';
+            toggleBlur();
+        }
+
+        function closePopup() {
+            var popup = document.getElementById('popup');
+            popup.style.display = 'none';
+            toggleBlur();
+        }
+
+        document.getElementById('closePopup').addEventListener('click', function() {
+            closePopup();
+        });
+        <?php if (isset($success)) { ?>
+            showPopup();
+        <?php } ?>
+    </script>
+  
     <?php require_once 'nav.php'; ?>
+    <?php require_once 'footernav.php'; ?>
     <?php require_once 'footer.php'; ?>
     <div class="starry-sky"></div>
     <?php require_once 'script.php'; ?>

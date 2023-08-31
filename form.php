@@ -1,5 +1,4 @@
 <?php
-    // Function to sanitize user input to prevent XSS attacks
     function sanitizeInput($data) {
         return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
     }
@@ -69,7 +68,7 @@
         $telefon = $_POST["telefon"];
         $telefon = preg_replace('/[^0-9]/', '', $telefon);
         
-        if (strlen($telefon) < 10) {
+        if (!preg_match('/^\+?[0-9]{8,15}$/', $telefon)) {
             $errors["telefon"] = "Ungültige Telefonnummer";
         }
     }
@@ -85,16 +84,18 @@
     
             if ($anmeldung_typ == "geburtshoroskop") {
                 $anmeldung_bezeichnung = "Geburtshoroskop";
-                // Hier die Aktion für die Ball-Anmeldung
-                // ...
+
             } elseif ($anmeldung_typ == "jahresprognose") {
                 $anmeldung_bezeichnung = "Jahresprognose";
-                // Hier die Aktion für die Sonne-Anmeldung
-                // ...
-            } elseif ($anmeldung_typ == "tee") {
-                $anmeldung_bezeichnung = "Tee-Anmeldung";
-                // Hier die Aktion für die Tee-Anmeldung
-                // ...
+                
+            } elseif ($anmeldung_typ == "stundenastrologie") {
+                $anmeldung_bezeichnung = "Stundenastrologie";
+                
+            } elseif ($anmeldung_typ == "astrokartographie") {
+                $anmeldung_bezeichnung = "Astrokartographie";
+                
+            } elseif ($anmeldung_typ == "relokationshoroskop") {
+                $anmeldung_bezeichnung = "Relokationshoroskop";
             }
         }
         $errors = validateForm();
@@ -106,7 +107,7 @@
                 if (is_array($value)) {
                     $value = implode(", ", $value);
                 }
-                $message_body = "Anmeldung zur Veranstaltung: " . $anmeldung_bezeichnung . "\n\n";
+                $message_body = "Buchung: " . $anmeldung_bezeichnung . "\n\n";
                 $message_body .= "Vorname: " . sanitizeInput($vorname) . "\n";
                 $message_body .= "Name: " . sanitizeInput($name) . "\n";
                 $message_body .= "Geburtsort: " . sanitizeInput($geburtsort) . "\n";
@@ -118,7 +119,7 @@
 
             $headers = "From: info@astrologieratgeber.ch";
             $to = "ivoschwizer@gmail.com";
-            $subject = "Anmeldung zur Veranstaltung: " . $anmeldung_bezeichnung;
+            $subject = "Buchung: " . $anmeldung_bezeichnung;
             
             $headers .= "\r\nContent-Type: text/plain; charset=utf-8\r\n";
             

@@ -47,6 +47,7 @@
 
             
     <?php require_once 'nav.php'; ?>
+    <?php require_once 'footernav.php'; ?>
     <?php require_once 'footer.php'; ?>
     <div class="starry-sky"></div>
     <?php require_once 'script.php'; ?>

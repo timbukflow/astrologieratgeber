@@ -3,47 +3,44 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# place: http://ogp.me/ns/place#">
 
     <meta charset="UTF-8">
-    <title>Astrologieratgeber | Jahresprognose</title>
+    <title>Astrologieratgeber | Stundenastrologie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Entdecken Sie die Chancen und Herausforderungen des bevorstehenden Jahres mit der astrologischen Jahresprognose. Erfahren Sie wertvolle Einblicke in verschiedene Lebensbereiche, basierend auf Himmelskonstellationen und kosmischen Einflüssen. Bereiten Sie sich auf kommende Möglichkeiten vor und meistern Sie potenzielle Herausforderungen mit Vertrauen und Klarheit.">
-    <meta name="keywords" content="Astrologische Jahresprognose, Chancen, Herausforderungen, Planetenpositionen, kosmische Einflüsse, Lebensbereiche, individuelle Prognose, beruflich, Beziehungen, Finanzen, persönliches Wachstum, Orientierung, Veränderungen, Vertrauen, Klarheit, Möglichkeiten, Bewältigung">
-    <link rel="canonical" href="https://astrologieratgeber.ch/jahresprognose" />
+    <meta name="description" content="Erfahren Sie mehr über die Stundenastrologische Konstellation, eine präzise und verifizierbare astrologische Methode, die ohne Geburtshoroskop auskommt. Erhalten Sie Antworten auf Ihre Fragen und lassen Sie sich von den momentanen Zeitqualitäten leiten.">
+    <meta name="keywords" content="Stundenastrologische Konstellation, Stundenastrologie, Stundenhoroskop, astrologische Methode, Frage und Antwort, Zeitqualität, persönliche Einverständnis, Lösungsfindung">
+    <link rel="canonical" href="https://astrologieratgeber.ch/stundenastrologie" />
     <?php require_once 'head.php'; ?>
 </head>
 
 <body>
     <section class="maincontent subpage">
-        <h1>Jahresprognose</h1>
+        <h1>Stundenastrologie</h1>
         <p>
-            Die astrologische Jahresprognose wirft einen einzigartigen Blick auf das bevorstehende Jahr und enthüllt die Chancen und Herausforderungen, die Sie erwarten. Basierend auf Planetenpositionen und kosmischen Einflüssen bietet diese Prognose wertvolle Einblicke in verschiedene Lebensbereiche.
+            In dem Moment, in welchem eine Frage auftaucht und verstanden wird, ist sie «geboren». Diese «Stundenastrologische Konstellation» wird in seiner momentanen Zeitqualität festgehalten und gedeutet. Stundenastrologie ist die älteste astrologische Technik, die ohne Geburtshoroskop auskommt und am meisten auf seine Richtigkeit überprüfbar ist. Das Stundenhoroskop spiegelt gewissermassen die eigenen Motive und Empfindungen wieder, welche zu der gegebenen Situation und der sich daraus resultierenden Frage passen. Dadurch wird man schrittweise zu der (eigenen) Lösung geführt. Das unbestimmte Gefühl, welches zur Frage geführt hat, klärt sich. Auf konkrete Fragen erhält man ganz konkrete Antworten. Ich behalte mir vor, bestimmte Fragen nicht anzunehmen. 
         </p> 
         <p>
-            Ich analysiere sorgfältig die Himmelskonstellationen, um eine individuelle Prognose für Sie zu erstellen. Sie erfahren, welche Lebensaspekte im kommenden Jahr im Fokus stehen, sei es beruflich, in Beziehungen, Finanzen oder persönlichem Wachstum. Diese Prognose ermöglicht es Ihnen, sich auf kommende Möglichkeiten vorzubereiten und potenzielle Herausforderungen besser zu bewältigen.
-        </p>
-        <p>
-            Ob Sie Orientierung suchen oder Veränderungen besser verstehen wollen – die astrologische Jahresprognose liefert wertvolle Erkenntnisse, um das Jahr mit Vertrauen und Klarheit zu gestalten und es bestmöglich zu nutzen.
+            Wenn es sich um Fragen im Zusammenhang mit weiteren Personen handelt, erwarte ich das persönliche Einverständnis dieser Personen.
         </p>
         
         <div class="description">
             <p class="line gold dprice">
-                <strong>Jahresprognose</strong>
-                Preis: 245 Franken
+                <strong>Stundenastrologie</strong>
+                Preis: 150 Franken
             </p>
             <p class="line dwhat">
                 <strong>Was erwartet Sie</strong> 
-                Als Ihr Astrologe studiere und analysiere ich eine Stunde Ihre Jahresprognose in Bezug auf bedeutende Konstellationen für ein Jahr im voraus. Anschliessend nehmen wir uns 1 Stunde Zeit für eine persönliche Besprechung, die auf Wunsch als "Voice Record" festgehalten werden kann. Diese Session kann auch bequem online über Plattformen wie Zoom, Teams oder Skype abgehalten werden.
+                Sie stellen mir Ihre Frage und erläutern mögliche wichtige Hintergrundinformationen. Sobald ich Ihre Frage vollständig verstanden habe, erstelle ich das Stundenhoroskop. Anschliessend nehmen wir uns 45 Minuten Zeit für eine persönliche Besprechung, die auf Wunsch als "Voice Record" festgehalten werden kann. Diese Session kann auch bequem online über Plattformen wie Zoom, Teams oder Skype abgehalten werden.
             </p>
         </div>
 
         <div class="booking" id="form">
             <p class="gold">
-                <strong>Jahresprognose Buchen</strong>
-                Bitte verwenden Sie das Formular, um Ihre Jahresprognose zu buchen. Innerhalb von drei Tagen werde ich mich mit Ihnen in Verbindung setzen, um einen geeigneten Termin in den nächsten drei Wochen zu vereinbaren.
+                <strong>Stundenastrologie Buchen</strong>
+                Bitte verwenden Sie das Formular, um Ihre Stundenastrologie zu buchen. Innerhalb von drei Tagen werde ich mich mit Ihnen in Verbindung setzen, um einen geeigneten Termin in der nächsten Woche zu vereinbaren.
             </p>
 
             <?php require_once('form.php'); ?>
             <form id="contact" method="post" action="#form" novalidate>
-                <input type="hidden" name="anmeldung_typ" value="jahresprognose">           
+                <input type="hidden" name="anmeldung_typ" value="stundenastrologie">           
                 <fieldset>
                     <input placeholder="Vorname&#42;" type="text" name="vorname" value="<?= htmlspecialchars($vorname) ?>" tabindex="1">
                     <span class="error"><?= isset($errors["vorname"]) ? htmlspecialchars($errors["vorname"]) : htmlspecialchars($vorname_error) ?></span>
@@ -73,15 +70,15 @@
                     <span class="error"><?= isset($errors["telefon"]) ? htmlspecialchars($errors["telefon"]) : htmlspecialchars($telefon_error) ?></span>
                 </fieldset>
                 <fieldset>
-                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Jahresprognose buchen</button>
+                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Stundenastrologie buchen</button>
                 </fieldset>
             </form>
         </div>    
     </section>
     <div id="popup" class="popup">
-        <h3>Vielen Dank für Ihre Buchung der Jahresprognose!</h3> 
+        <h3>Vielen Dank für Ihre Buchung der Stundenastrologie!</h3> 
         <p>
-            Innerhalb von drei Tagen werde ich mich mit Ihnen in Verbindung setzen, um einen geeigneten Termin in den nächsten drei Wochen zu vereinbaren.<br><br>
+            Innerhalb von drei Tagen werde ich mich mit Ihnen in Verbindung setzen, um einen geeigneten Termin in der nächsten Woche zu vereinbaren.<br><br>
             Stefan Haas <br>
             Astrologieratgeber
         </p>

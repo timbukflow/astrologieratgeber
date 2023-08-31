@@ -45,5 +45,4 @@ $(".burger-icon").click(function() {
   $(".nav-list").toggleClass("active");
 });
 
-
 });
