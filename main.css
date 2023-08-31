@@ -9,6 +9,7 @@
 
   --fonttitle: 60px;
   --fontsubtitle: 30px;
+  --fontsubsubtitle: 25px;
   --fonttext: 20px;
   --fontsmall: 18px;
 }
@@ -27,7 +28,7 @@ body {
 /*----------------------------------
   Font
 -----------------------------------*/
-h1, h2, h3, p, a, li, input, button, .error {
+h1, h2, h3, h4, p, a, li, input, button, .error {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: var(--fonttext);
@@ -51,6 +52,9 @@ h3 {
   font-size: var(--fontsubtitle);
   margin-top: 0px;
   line-height: 1.3em;
+}
+h4 {
+  font-size: var(--fontsubsubtitle);
 }
 
 strong {
@@ -591,6 +595,18 @@ footer a {
   padding-left: 15px;
 }
 
+/*----------------------------------
+    Impressum Datenschutz
+-----------------------------------*/
+.datenschutz {
+  margin-bottom: 150px;
+}
+.datenschutz h3 {
+  margin: 40px 0 0;
+}
+.datenschutz li {
+  padding: 10px 0;
+}
 /*----------------------------------
     Cookiebanner
 -----------------------------------*/

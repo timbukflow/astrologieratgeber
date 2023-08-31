@@ -6,7 +6,7 @@
         <a href="mailto:info@astrologieratgeber.ch" target="_top">info@astrologieratgeber.ch</a><br>
     </div>
     <div>
-        <a href="Impressum">Impressum</a>
-        <a href="Datenschutz" target="_top">Datenschutz</a>
+        <a href="impressum">Impressum</a>
+        <a href="datenschutz" target="_top">Datenschutz</a>
     </div>
 </footer>
