@@ -46,6 +46,7 @@ h1 {
   color: var(--yellowgold);
   font-size: var(--fonttitle);
   font-weight: 300;
+  line-height: 1.2;
 }
 
 h3 {
@@ -263,6 +264,7 @@ footer.fade {
   margin-bottom: 50px;
   font-size: var(--fonttext);
   font-weight: 400;
+  line-height: 1.75rem;
 }
 
 .sun {
@@ -747,22 +749,10 @@ footer a {
 -----------------------------------*/
 
 
-@media (max-width: 1200px) {
-  
-}
-
-@media (max-width: 960px) {
-  
-}
-
 @media (max-width: 870px) {
   /* root */
   :root {
-    --fonttitle: 60px;
-    --fontsubtitle: 30px;
-    --fontsubsubtitle: 25px;
     --fonttext: 18px;
-    --fontsmall: 18px;
   }
 
   /* nav */
@@ -816,4 +806,16 @@ footer a {
   }
   #cookiebanner {width: calc(100% - 40px); left: 20px;}
   #cookiebanner.visible {bottom: 30px;}
+}
+
+@media (max-width: 720px) {
+  /* start */
+ .intro h1 {margin: 70px 50px 0;}
+ .rotating-image {
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  margin-top: -9px;
+ /*  */
+ 
 }
