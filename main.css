@@ -795,6 +795,20 @@ footer a {
     opacity: 0.75;
   }
 
+  /* stars */
+  .star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkling 3s linear infinite;
+    opacity: 0.25;
+  }
+  
+  @keyframes twinkling {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.25; }
+  }
+
   /* footer */
   footer {
     flex-direction: column;
