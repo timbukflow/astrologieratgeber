@@ -22,7 +22,7 @@ generateStars(300);
 
 // Angebot
 const angebotBtn = $("#angebotBtn");
-const mainContent = $(".maincontent");
+const mainContent = $(".maincontent, footer");
 const angebotContent = $(".angebotnav");
 let isMainContentVisible = true;
 
@@ -39,9 +39,27 @@ angebotBtn.click(function() {
   isMainContentVisible = !isMainContentVisible;
 });
 
+/////////// Navigation ///////////
+const nav = document.querySelector('nav');
+let lastScrollTop = 0;
+const navShowThreshold = 100;
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop + navShowThreshold) {
+    nav.style.top = '-108px';
+    lastScrollTop = scrollTop;
+    } else if (scrollTop < lastScrollTop - navShowThreshold) {
+    nav.style.top = '0';
+    lastScrollTop = scrollTop;
+    }
+});
+
 // Nav responsiv
 $(".burger-icon").click(function() {
   $(this).toggleClass("active");
+  $(".nav-list").stop(true,true).fadeToggle(800);
   $(".nav-list").toggleClass("active");
 });
 

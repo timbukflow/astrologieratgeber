@@ -31,7 +31,7 @@
             </p>
             <p class="line dwhat">
                 <strong>Was erwartet Sie</strong> 
-                Als Ihr Astrologe studiere und analysiere ich eine Stunde Ihre Jahresprognose in Bezug auf bedeutende Konstellationen für ein Jahr im voraus. Anschliessend nehmen wir uns 1 Stunde Zeit für eine persönliche Besprechung, die auf Wunsch als "Voice Record" festgehalten werden kann. Diese Session kann auch bequem online über Plattformen wie Zoom, Teams oder Skype abgehalten werden.
+                Als Ihr Astrologe studiere und analysiere ich eine Stunde Ihre Jahresprognose in Bezug auf bedeutende Konstellationen für ein Jahr im voraus. Anschliessend nehmen wir uns eine Stunde Zeit für eine persönliche Besprechung, die auf Wunsch als "Voice Record" festgehalten werden kann. Diese Session kann auch bequem online über Plattformen wie Zoom, Teams oder Skype abgehalten werden.
             </p>
         </div>
 
