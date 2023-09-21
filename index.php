@@ -23,7 +23,7 @@
         </h1>
     </section>
     <section class="maincontent">
-        <h1>Astrologieratgeber</h1>
+        <h1>Astrologie&shy;ratgeber</h1>
         <p>
             Als Astrologieratgeber ist es meine Intention, Ihnen seriösen und fundierten Rat durch astrologische Deutung anzubieten. Dies eröffnet Ihnen einen umfassenderen Blick auf Ihre Situation und unterstützt Sie dabei, klare Entscheidungen für eine erfüllte Gegenwart und eine zielgerichtete Zukunft zu treffen.
         </p>

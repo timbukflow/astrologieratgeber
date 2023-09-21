@@ -46,7 +46,7 @@ h1 {
   color: var(--yellowgold);
   font-size: var(--fonttitle);
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 h3 {
@@ -811,11 +811,19 @@ footer a {
 @media (max-width: 720px) {
   /* start */
  .intro h1 {margin: 70px 50px 0;}
+
+
+}
+
+
+
+@media (max-width: 450px) {
+  /* start */
  .rotating-image {
-  width: 18px;
-  height: 18px;
-  margin-left: -9px;
-  margin-top: -9px;
- /*  */
- 
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  margin-top: -7px;
+  }
+  
 }
