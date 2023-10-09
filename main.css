@@ -1,7 +1,6 @@
 :root {
   --skydark: #041F41;
   --skylight: #0D3C7D;
-  --yellowdark: #FFE072;
   --yellowlight: #FFF2AE;
   --yellowgold: #EBCF87;
 
@@ -112,8 +111,8 @@ nav {
   height: 8px;
   width: 8px;
   border-radius: 8px;
-  background: var(--yellowdark);
-  background: linear-gradient(90deg, var(--yellowlight) 20%, var(--yellowdark) 100%);
+  background: var(--yellowgold);
+  background: linear-gradient(90deg, var(--yellowlight) 20%, var(--yellowgold) 100%);
 }
 
 .outercircle {
@@ -285,8 +284,8 @@ footer.fade {
   width: 60px;
   border-radius: 60px;
   transform: scale(1);
-  background: var(--yellowdark);
-  background: linear-gradient(90deg, var(--yellowlight) 20%, var(--yellowdark) 100%);
+  background: var(--yellowgold);
+  background: linear-gradient(90deg, var(--yellowlight) 20%, var(--yellowgold) 100%);
   animation: sun 10s linear infinite;
 }
 
@@ -796,6 +795,7 @@ footer a {
     display: block;
     margin-bottom: 15px;
     position: relative;
+    border: 1px solid var(--fontwhite);
     opacity: 0.75;
   }
   .nav-list li a {
@@ -855,9 +855,7 @@ footer a {
 @media (max-width: 720px) {
   /* start */
   .intro {margin-top: 80px;}
- .intro h1 {margin: 70px 50px 0;}
-
-
+  .intro h1 {margin: 70px 0 0;}
 }
 
 
