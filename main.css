@@ -842,8 +842,6 @@ footer a {
     top: 10px;
   }
 
-  
-
   footer {
     flex-direction: column;
     gap: 20px;
@@ -856,6 +854,7 @@ footer a {
   /* start */
   .intro {margin-top: 80px;}
   .intro h1 {margin: 70px 0 0;}
+  .center {margin-right: 0; margin-left: 5%;}
 }
 
 
