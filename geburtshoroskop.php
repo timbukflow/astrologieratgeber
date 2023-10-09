@@ -13,7 +13,7 @@
 
 <body>
     <section class="maincontent subpage">
-        <h1>Geburtshoroskop</h1>
+        <h1>Geburts&shy;horoskop</h1>
         <p>
             Das Geburtshoroskop ist eine einzigartige Karte der kosmischen Konstellationen zum Zeitpunkt Ihrer Geburt. Es zeigt die Positionen von Planeten, Sonne und Mond in Bezug auf Ihre Geburtszeit und -ort. Diese astronomischen Konstellationen beeinflussen Ihre Charakterzüge, Emotionen und Lebensrichtungen. Das Geburtshoroskop bietet wertvolle Einblicke in Ihre Persönlichkeit und Lebensrichtung, um bewusster und erfüllter zu leben.
         </p> 

@@ -13,7 +13,7 @@
 
 <body>
     <section class="maincontent subpage">
-        <h1>Jahresprognose</h1>
+        <h1>Jahres&shy;prognose</h1>
         <p>
             Die astrologische Jahresprognose wirft einen einzigartigen Blick auf das bevorstehende Jahr und enthüllt die Chancen und Herausforderungen, die Sie erwarten. Basierend auf Planetenpositionen und kosmischen Einflüssen bietet diese Prognose wertvolle Einblicke in verschiedene Lebensbereiche.
         </p> 

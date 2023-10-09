@@ -11,16 +11,18 @@
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
-        <ul class="nav-list" id="navList">
-            <li><a href="uebermich">Über mich</a></li>
-            <li id="angebotBtn">Angebot</li>
-            <li class="nav-resp"><a href="stundenastrologie">Stundenastrologie</a></li>
-            <li class="nav-resp"><a href="geburtshoroskop">Geburtshoroskop</a></li>
-            <li class="nav-resp"><a href="jahresprognose">Jahresprognose</a></li>
-            <li class="nav-resp"><a href="relokationshoroskop">Relokationshoroskop</a></li>
-            <li class="nav-resp"><a href="astrokartographie">Astrokartographie</a></li>
-            <li><a href="preise">Preise</a></li>
-        </ul>
+        <div class="nav-list-cont">
+            <ul class="nav-list" id="navList">
+                <li><a href="uebermich">Über mich</a></li>
+                <li id="angebotBtn">Angebot</li>
+                <li class="nav-resp"><a href="stundenastrologie">Stundenastrologie</a></li>
+                <li class="nav-resp"><a href="geburtshoroskop">Geburtshoroskop</a></li>
+                <li class="nav-resp"><a href="jahresprognose">Jahresprognose</a></li>
+                <li class="nav-resp"><a href="relokationshoroskop">Relokationshoroskop</a></li>
+                <li class="nav-resp"><a href="astrokartographie">Astrokartographie</a></li>
+                <li><a href="preise">Preise</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 

@@ -59,8 +59,8 @@ window.addEventListener('scroll', () => {
 // Nav responsiv
 $(".burger-icon").click(function() {
   $(this).toggleClass("active");
-  $(".nav-list").stop(true,true).fadeToggle(800);
-  $(".nav-list").toggleClass("active");
+  $(".nav-list-cont").stop(true,true).fadeToggle(800);
+  $("body").toggleClass("fixed");
 });
 
 });

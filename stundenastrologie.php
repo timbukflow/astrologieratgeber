@@ -13,7 +13,7 @@
 
 <body>
     <section class="maincontent subpage">
-        <h1>Stundenastrologie</h1>
+        <h1>Stunden&shy;astrologie</h1>
         <p>
             In dem Moment, in welchem eine Frage auftaucht und verstanden wird, ist sie «geboren». Diese «Stundenastrologische Konstellation» wird in seiner momentanen Zeitqualität festgehalten und gedeutet. Stundenastrologie ist die älteste astrologische Technik, die ohne Geburtshoroskop auskommt und am meisten auf seine Richtigkeit überprüfbar ist. Das Stundenhoroskop spiegelt gewissermassen die eigenen Motive und Empfindungen wieder, welche zu der gegebenen Situation und der sich daraus resultierenden Frage passen. Dadurch wird man schrittweise zu der (eigenen) Lösung geführt. Das unbestimmte Gefühl, welches zur Frage geführt hat, klärt sich. Auf konkrete Fragen erhält man ganz konkrete Antworten. Ich behalte mir vor, bestimmte Fragen nicht anzunehmen. 
         </p> 
