@@ -522,6 +522,7 @@ input, button {
   color: var(--yellowgold);
   border-bottom: 2px solid var(--yellowgold);
   background-color: transparent;
+  border-radius: 0;
   margin-bottom: 5px;
   padding: 18px 10px 15px;
 }
