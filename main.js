@@ -24,6 +24,7 @@ generateStars(300);
 const angebotBtn = $("#angebotBtn");
 const mainContent = $(".maincontent, footer");
 const angebotContent = $(".angebotnav");
+const body = $("body");
 let isMainContentVisible = true;
 
 angebotBtn.click(function() {
@@ -31,10 +32,12 @@ angebotBtn.click(function() {
     angebotBtn.addClass("activBtn")
     mainContent.addClass("fade");
     angebotContent.stop(true,true).fadeIn(800);
+    body.addClass("fixed");
   } else {
     angebotBtn.removeClass("activBtn")
     mainContent.removeClass("fade");
     angebotContent.stop(true,true).fadeOut(800);
+    body.removeClass("fixed");
   }
   isMainContentVisible = !isMainContentVisible;
 });
