@@ -118,7 +118,7 @@
             }
 
             $headers = "From: info@astrologieratgeber.ch";
-            $to = "ivoschwizer@gmail.com";
+            $to = "info@astrologieratgeber.ch";
             $subject = "Buchung: " . $anmeldung_bezeichnung;
             
             $headers .= "\r\nContent-Type: text/plain; charset=utf-8\r\n";
