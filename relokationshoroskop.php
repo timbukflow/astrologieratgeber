@@ -13,7 +13,7 @@
 
 <body>
     <section class="maincontent subpage">
-        <h1>Relokationshoroskop</h1>
+        <h1>Relokations&shy;horoskop</h1>
         <p>
             Die Relokation wird in der Astrologie als eine Ortsveränderung bezeichnet. Die Grundlage dafür ist wiederum das Geburtshoroskop (Radixhoroskop) aus dem das Relokationshoroskop abgeleitet wird. Dies sollte man erst tun, wenn man sich bereits entschieden hat, dass man seinen Wohnort wechselt. Mit dem Umzug tritt das Relokationshoroskop in Kraft. Das Geburtshoroskopes wird dann auf den neuen Ort, an dem man wohnen wird, berechnet. Bei naheliegenden Orten sind Unterscheide zum Geburtshoroskop oft nur gering, jedoch kann bereits der Aszendent wechseln und so ein zusätzliches Bild auf die neue Lebenssituation aufzeigen. Bei weit entfernten Orten ist die Häusereinteilung meist völlig anders und zeigen uns umso deutlicher die neuen astrologischen Einflüsse auf. Die Planetenkonstellationen und Aspekte bleiben immer dieselben. 
         </p> 

@@ -48,6 +48,6 @@
     } else if (document.cookie.indexOf('accepted=') >= 0) {
         accept();
     } else {
-        setTimeout(showBanner, 3500);
+        setTimeout(showBanner, 5500);
     }
 </script>

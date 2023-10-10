@@ -13,7 +13,7 @@
 
 <body>
     <section class="maincontent subpage">
-        <h1>Astrokartographie</h1>
+        <h1>Astrokarto&shy;graphie</h1>
         <p>
             Die Astrokartographie oder Standortastrologie betrachtet die Planeten auf dem irdischen Horizont, wobei der Geborene in der Mitte der Betrachtung steht und dabei geschaut wird auf welche Weise die Planeten von ihm in verschiedenen Himmelsrichtungen strahlen. Das Standorthoroskop ermöglicht damit eine Betrachtung der astrologischen Veränderung und deren Vor- und Nachteile von Land, Stadt sowie Wohnen. 
         </p>

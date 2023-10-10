@@ -756,12 +756,8 @@ footer a {
 
 @media (max-width: 870px) {
   /* root */
-  :root {
-    --fonttext: 18px;
-  }
-  input {
-    margin-bottom: 0;
-  }
+  :root {--fonttext: 18px;}
+  input {margin-bottom: 0;}
 
   /* nav */
   .burger-icon {
@@ -859,6 +855,9 @@ footer a {
 
 
 @media (max-width: 450px) {
+  /* root */
+  :root {--fonttitle: 55px;}
+
   /* start */
  .rotating-image {
   width: 16px;
