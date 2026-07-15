@@ -31,11 +31,13 @@ Server-Anforderungen: PHP 8.0+ und Apache 2.4+ (beides bei Hostpoint Standard).
        hinterlegt (Turnstile → Widget → Hostname Management).
 
    [ ] Testbuchung abschicken und prüfen, ob die Mail bei
-       ivoschwizer@gmail.com ankommt (und nicht im Spam landet).
+       stefan.haas@skema.ch ankommt (und nicht im Spam landet).
+       Achtung: Buchungen von der Testumgebung landen damit bei Stefan.
+       Zum Testen ohne ihn zu stören: mail_to vorübergehend auf die eigene
+       Adresse setzen.
 
    Was auf der Testumgebung bereits richtig eingestellt ist:
-     - staging => true      → noindex + robots.txt Disallow, Google bleibt draussen
-     - mail_to  => Ivo      → Buchungen gehen zum Testen an dich
+     - staging => true   → noindex + robots.txt Disallow, Google bleibt draussen
      - HTTPS/www/HSTS in der .htaccess auskommentiert → kein Zertifikat nötig
 
 
@@ -48,11 +50,10 @@ Alles Folgende ist Konfiguration, kein Code. Reihenfolge 1–3 ist Pflicht,
 
 1. config.php ausfüllen  (liegt NICHT im Git — siehe .gitignore)
    ---------------------------------------------------------------
-   [ ] 'mail_to' => 'stefan.haas@skema.ch'
-       ZURZEIT AUF TESTBETRIEB: Buchungen gehen an ivoschwizer@gmail.com.
-       Wird das vergessen, landen echte Kundenbuchungen bei Ivo statt bei
-       Stefan — und Stefan merkt nichts davon, weil das Formular sich völlig
-       normal verhält. Zuerst umstellen, dann alles andere.
+   [x] 'mail_to' => 'stefan.haas@skema.ch'  — steht richtig.
+       Falls zwischenzeitlich zum Testen umgestellt: unbedingt zurücksetzen.
+       Wird das vergessen, landen echte Kundenbuchungen woanders — und Stefan
+       merkt nichts davon, weil das Formular sich völlig normal verhält.
 
    [ ] 'staging' => false
        Solange true, steht auf jeder Seite ein noindex-Meta und robots.txt
