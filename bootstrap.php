@@ -11,26 +11,59 @@ const SITE_OWNER = 'Stefan Haas';
 
 const HOURLY_RATE = 160;
 
+/** Schluessel, die config.php enthalten muss. Vorlage: WHATTODOBEFORGOONLINE.php */
+const CONFIG_KEYS = [
+    'turnstile_site_key',
+    'turnstile_secret_key',
+    'ga_measurement_id',
+    'mail_to',
+    'mail_from',
+    'staging',
+];
+
+/**
+ * Fehlt config.php oder ein Schluessel darin, bricht die Seite hier ab.
+ * Absichtlich laut: Ein stiller Rueckfall auf Beispielwerte wuerde bedeuten,
+ * dass Turnstile inaktiv ist und Buchungen an die falsche Adresse gehen —
+ * ohne dass man der Seite von aussen etwas ansieht.
+ */
 function config(?string $key = null, mixed $default = null): mixed
 {
     static $config = null;
+
     if ($config === null) {
         $file = __DIR__ . '/config.php';
-        if (is_file($file)) {
-            $config = require $file;
-        } else {
-            // Die Seite laeuft weiter, aber ohne Turnstile und mit dem
-            // Beispiel-Empfaenger. Ohne diesen Eintrag im Log faellt das
-            // niemandem auf — die Seite sieht voellig normal aus.
-            error_log('config.php fehlt — Fallback auf config.example.php. '
-                . 'Turnstile ist damit inaktiv und mail_to zeigt auf den Beispielwert.');
-            $config = require __DIR__ . '/config.example.php';
+
+        if (!is_file($file)) {
+            config_abbruch('config.php fehlt. Benoetigte Schluessel: '
+                . implode(', ', CONFIG_KEYS));
+        }
+
+        $config = require $file;
+
+        if (!is_array($config)) {
+            config_abbruch('config.php gibt kein Array zurueck.');
+        }
+
+        $fehlend = array_diff(CONFIG_KEYS, array_keys($config));
+        if ($fehlend) {
+            config_abbruch('config.php fehlen Schluessel: ' . implode(', ', $fehlend));
         }
     }
+
     if ($key === null) {
         return $config;
     }
     return $config[$key] ?? $default;
+}
+
+function config_abbruch(string $grund): never
+{
+    error_log('KONFIGURATIONSFEHLER: ' . $grund);
+    http_response_code(500);
+    header('Content-Type: text/plain; charset=utf-8');
+    exit("Die Seite ist zurzeit nicht verfügbar.\n"
+        . "Bitte melden Sie sich unter info@astrologieratgeber.ch oder 044 442 02 23.\n");
 }
 
 function e(?string $value): string
@@ -111,6 +144,12 @@ function csrf_valid(?string $token): bool
         && !empty($_SESSION['csrf_token'])
         && hash_equals($_SESSION['csrf_token'], $token);
 }
+
+// Konfiguration sofort einlesen und pruefen. Muss hier stehen und nicht erst
+// beim ersten config()-Aufruf: Bis dahin haette die Seite schon HTML
+// ausgegeben, und http_response_code(500) waere wirkungslos ("headers already
+// sent"). Der Besucher saehe eine halb gerenderte Seite mit Status 200.
+config();
 
 if (session_status() === PHP_SESSION_NONE) {
     session_set_cookie_params([

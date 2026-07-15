@@ -5,20 +5,30 @@ Server-Anforderungen: PHP 8.0+ und Apache 2.4+ (beides bei Hostpoint Standard).
 
    [ ] config.php auf dem Server VON HAND anlegen
        Sie ist per .gitignore vom Repository ausgeschlossen, damit der
-       Turnstile-Secret-Key nicht auf GitHub landet. Sie kommt also NICHT
-       per git pull mit. Vorlage: config.example.php kopieren und die Werte
-       aus der lokalen config.php übernehmen.
+       Turnstile-Secret-Key nicht auf GitHub landet — sie kommt also NICHT
+       per git pull mit.
 
-       Fehlt sie, läuft die Seite trotzdem — aber mit config.example.php:
-       Turnstile inaktiv, Mail an den Beispielempfänger. Von aussen ist das
-       nicht zu sehen. Im Server-Fehlerlog steht dann eine Zeile
-       "config.php fehlt — Fallback auf config.example.php".
+       Fehlt sie oder fehlt ein Schlüssel darin, bricht die Seite mit einer
+       500-Meldung ab und schreibt "KONFIGURATIONSFEHLER: ..." ins Fehlerlog.
+       Das ist Absicht: besser eine Seite, die sichtbar streikt, als eine, die
+       stillschweigend ohne Turnstile läuft und Buchungen falsch zustellt.
 
-   [ ] Turnstile: Domain der Testumgebung im Cloudflare-Dashboard eintragen
-       (Turnstile → Widget → Hostname Management).
-       Fehlt sie, bricht das Widget mit Fehler 110200 ab, es entsteht kein
-       Token, und NIEMAND kann buchen. Die Seite sieht dabei normal aus —
-       nur das Absenden schlägt fehl.
+       ── Vorlage: config.php ──────────────────────────────────────────
+       <?php
+       return [
+           'turnstile_site_key'   => '0x4AAA…',   // Cloudflare → Turnstile
+           'turnstile_secret_key' => '0x4AAA…',   // geheim, nie ins Frontend
+           'ga_measurement_id'    => '',          // G-XXXXXXXXXX, leer = kein Analytics
+           'mail_to'              => 'stefan.haas@skema.ch',
+           'mail_from'            => 'info@astrologieratgeber.ch',
+           'staging'              => true,        // false = für Google freigeben
+       ];
+       ─────────────────────────────────────────────────────────────────
+       Alle sechs Schlüssel müssen vorhanden sein. Die echten Werte stehen
+       in Ivos lokaler config.php.
+
+   [x] Turnstile: Domain der Testumgebung ist im Cloudflare-Dashboard
+       hinterlegt (Turnstile → Widget → Hostname Management).
 
    [ ] Testbuchung abschicken und prüfen, ob die Mail bei
        ivoschwizer@gmail.com ankommt (und nicht im Spam landet).
@@ -51,18 +61,20 @@ Alles Folgende ist Konfiguration, kein Code. Reihenfolge 1–3 ist Pflicht,
 
    [x] 'turnstile_site_key' / 'turnstile_secret_key'  — ist eingetragen.
 
-   [ ] WICHTIG: Turnstile-Hostnames im Cloudflare-Dashboard ergänzen
+   [ ] Turnstile-Hostnames im Cloudflare-Dashboard vervollständigen
        (Turnstile → Widget → Hostname Management).
-       Ein Widget akzeptiert NUR die dort gelisteten Domains. Auf jeder
-       anderen bricht es mit Fehler 110200 ab, es entsteht kein Token —
-       und damit kann NIEMAND mehr buchen. Das trifft still zu: die Seite
-       sieht normal aus, nur das Absenden schlägt fehl.
-       Einzutragen sind:
+       Die Testdomain ist bereits eingetragen. Für den Livegang fehlen noch:
          astrologieratgeber.ch
          www.astrologieratgeber.ch
-         <die Domain der Testumgebung>
-       Zum lokalen Entwickeln zusätzlich 127.0.0.1 und localhost, oder
-       vorübergehend die Cloudflare-Testschlüssel verwenden
+       Ohne sie bricht das Widget mit Fehler 110200 ab, es entsteht kein
+       Token — und NIEMAND kann buchen. Das trifft still zu: die Seite sieht
+       normal aus, nur das Absenden schlägt fehl.
+
+   [ ] Danach die Testdomain aus der Hostname-Liste ENTFERNEN, damit das
+       Widget nicht länger von der Testumgebung aus nutzbar ist.
+
+       Zum lokalen Entwickeln: 127.0.0.1 eintragen oder die
+       Cloudflare-Testschlüssel verwenden
        (Site 1x00000000000000000000AA / Secret 1x0000000000000000000000000000000AA
         — bestehen immer, gehören NIE auf die Live-Seite).
 

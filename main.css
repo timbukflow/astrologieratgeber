@@ -748,8 +748,11 @@ input:focus {
   padding-left: 10px
 }
 
+/* Wird nur nach einer Buchung (?ok=1) ueberhaupt gerendert — braucht darum
+   kein display:none mehr. Frueher stand es immer im HTML und JavaScript
+   schaltete es per style.display sichtbar. */
 .popup {
-  display: none;
+  display: block;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -762,7 +765,7 @@ input:focus {
   z-index: 9999;
 }
 
-.popup h3, .popup p, .popup button {
+.popup h2, .popup h3, .popup p, .popup button {
   color: var(--skydark);
 }
 
