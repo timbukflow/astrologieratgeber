@@ -1,39 +1,54 @@
+<?php
+require_once __DIR__ . '/bootstrap.php';
+
+$page_title       = SITE_NAME . ' | Über mich';
+$page_description = 'Stefan Haas, Astrologe in Uster: seit 2015 in der Astrologie, mit Ausbildung in psychologischer Astrologie. Mein Weg und mein Verständnis der Deutungskunst.';
+$page_url         = SITE_URL . '/uebermich';
+$page_jsonld      = 'about';
+?>
 <!DOCTYPE html>
 <html lang="de">
-<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# place: http://ogp.me/ns/place#">
-
-    <meta charset="UTF-8">
-    <title>Astrologieratgeber | Über mich</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Astrologie, Matthias Häbberli, astrologische Ausbildung, Stundenastrologie, psychologische Astrologie, vedische Astrologie, hermetische Astrologie, Horoskopdeutung, persönliche Entwicklung, Orientierung">
-    <link rel="canonical" href="https://astrologieratgeber.ch/uebermich" />
-    <?php require_once 'head.php'; ?>
+<head>
+    <?php require __DIR__ . '/head.php'; ?>
 </head>
 
 <body>
-    <section class="maincontent subpage">
+    <?php require __DIR__ . '/nav.php'; ?>
+
+    <main class="maincontent subpage" id="main">
         <h1>Über mich</h1>
         <p>
-            Durch den grossartigen Astrologen Matthias Häberli fand ich 2015 zur Astrologie. In eins-zu-eins Unterricht hat er mich geduldig und erfahren in diese Welt eingeführt. Nachfolgend folgten viele Jahre des autodidaktischen Studiums. Ich vertiefte mich in die Werke grosser Astrologen wie Morin de Villefranche, Meister Omraam Mikhael Aivanhov, Edgar Cayce, Thomas Ring, Reinhold und Baldur Ebertin, Michael Roscher und Wolfgang Döbereiner, um Gemeinsamkeiten und Unterschiede zu erkennen. Wertvolle Einblicke erhielt ich von Rafael Gil Brand, einem hervorragenden syderischen Astrologen. Einige Jahre später absolvierte ich die Ausbildung in psychologischer Astrologie am Astrologie Zentrum Berlin von Markus Jehle, einem genialen Astrologen, Buchautor und Journalisten.
-        </p> 
-        <p>
-            Meine Berufsausbildung als Stundenastrologe erfolgte im Privatunterricht bei Emil Schmidt, dem Grandseigneur der Stundenastrologie in Europa. Jährliche Weiterbildungen in diversen Spezialgebieten der Astrologie nehme ich bei Peter Fraiss wahr, einem äusserst kompetenten Astrologen, der die Sarastro Astrologie Software entwickelte und das Sarastro College Wien gründete.
+            Mein Zugang zur Astrologie begann 2015 – ausgelöst durch die präzisen Deutungen des Astrologen Matthias Häberli. Aus anfänglichem Interesse entwickelte sich eine fundierte Auseinandersetzung mit der Horoskopdeutung.
         </p>
         <p>
-            Bis heute bin ich bewusst keinem Astrologenverband beigetreten, da ich der Ansicht bin, dass es viele renommierte Schulen gibt und ich mich nicht auf eine spezifische Richtung festlegen möchte. Ich schätze gleichermassen die grossen Astrologen der Vergangenheit und die neuen Erkenntnisse der gegenwärtigen Astrologen. Nach vielen Jahren des gründlichen Studiums und der präzisen Horoskopdeutung bin ich zutiefst überzeugt, dass die Astrologie in vielerlei Hinsicht wertvolle Orientierung und Empfehlungen bieten kann. Gleichzeitig ermutigt sie uns dazu, unser Schicksal in die eigenen Hände zu nehmen, Verantwortung für unser Handeln zu übernehmen und an unserer persönlichen Entwicklung zu arbeiten. In der Gegenwart legen wir das Fundament für unsere Zukunft.
+            Seitdem bilde ich mich kontinuierlich durch Selbststudium, Ausbildungen in psychologischer Astrologie und persönlichem Einzelunterricht weiter.
+        </p>
+        <p>
+            In meiner Arbeit als Med. Masseur und Schulleiter der SKEMA Kampfkunstschule Uster habe ich über die Jahre viele Horoskope analysiert. Dabei wird mir immer wieder der Wert der Astrologie für Orientierung, Sinnfindung und persönliche Entwicklung bewusst.
+        </p>
+        <p>
+            Astrologie verstehe ich als Ratgeber für konkrete Lebensfragen – vergleichbar mit einem inneren „Wetterbericht“, der aufzeigt, wo wir aktuell stehen.
+        </p>
+        <p>
+            Gleichzeitig fordert sie uns dazu auf, unser Schicksal in die eigenen Hände zu nehmen und Verantwortung für unser Tun und Handeln zu übernehmen.
+        </p>
+        <p>
+            In der Gegenwart legen wir das Fundament für unsere Zukunft. Je klarer wir unsere Denk-, Fühl- und Handlungsmuster erkennen, desto weiser können wir auch herausfordernde Zeiten meistern.
         </p>
         <p class="line gold center">
-            Stefan Haas <br>
+            <?= e(SITE_OWNER) ?> <br>
             Ihr Astrologieratgeber
         </p>
-    </section>
-      
-    
-    <?php require_once 'nav.php'; ?>
-    <?php require_once 'footernav.php'; ?>
-    <?php require_once 'footer.php'; ?>
-    <div class="starry-sky"></div>
-    <?php require_once 'script.php'; ?>
-    <?php require_once 'googleanalytics.php'; ?>
+    </main>
+
+    <?php
+    require __DIR__ . '/footernav.php';
+    require __DIR__ . '/footer.php';
+    ?>
+    <div class="starry-sky" aria-hidden="true"></div>
+    <?php
+    require __DIR__ . '/script.php';
+    require __DIR__ . '/googleanalytics.php';
+    ?>
 </body>
 </html>

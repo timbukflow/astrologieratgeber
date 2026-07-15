@@ -1,30 +1,21 @@
+<?php
+require_once __DIR__ . '/bootstrap.php';
+
+$page_title       = SITE_NAME . ' | Datenschutz';
+$page_description = 'Datenschutzerklärung von Astrologieratgeber Stefan Haas.';
+$page_url         = SITE_URL . '/datenschutz';
+$page_noindex     = true;
+?>
 <!DOCTYPE html>
 <html lang="de">
-<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# place: http://ogp.me/ns/place#">
-
-    <meta charset="UTF-8">
-    <title>Astrologieratgeber | Datenschutz</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Stefan Haas">
-    <meta name="robots" content="noindex">
-    
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ebcf87">
-    <meta name="msapplication-TileColor" content="#041f41">
-    <meta name="theme-color" content="#041f41">
-
-    <link rel="stylesheet" href="main.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-
+<head>
+    <?php require __DIR__ . '/head.php'; ?>
 </head>
 
 <body>
-    <section class="maincontent subpage datenschutz">
+    <?php require __DIR__ . '/nav.php'; ?>
+
+    <main class="maincontent subpage datenschutz" id="main">
         <h1>Datenschutzerklärung</h1>
         <p>
             Mit dieser Datenschutzerklärung informieren wir, welche Personendaten wir im Zusammenhang mit unseren Aktivitäten und Tätigkeiten einschliesslich unserer <a href="https://astrologieratgeber.ch">www.astrologieratgeber.ch</a> Website bearbeiten. Wir informieren insbesondere, wofür, wie und wo wir welche Personendaten bearbeiten. Wir informieren ausserdem über die Rechte von Personen, deren Daten wir bearbeiten.
@@ -170,15 +161,20 @@
             <a class="gold" href="https://fonts.google.com/">Dienste von Google Fonts</a><br>
         </p>
 
-        <h3 class="gold">9. Erweiterungen für die Website</h3>
+        <h4 class="gold">8.3 Schutz vor Missbrauch des Buchungsformulars</h4>
         <p>
-            Wir verwenden Erweiterungen für unsere Website, um zusätzliche Funktionen nutzen zu können.
+            Wir nutzen einen Dienst eines Dritten, um unser Buchungsformular vor automatisierten Zusendungen («Spam») zu schützen. Dabei werden technische Angaben Ihres Browsers sowie Ihre IP-Adresse an den Anbieter übermittelt, um zu prüfen, ob die Eingabe von einem Menschen stammt. Der Dienst setzt hierfür keine Cookies zu Werbezwecken. Die Verarbeitung erfolgt in unserem berechtigten Interesse an einem funktionsfähigen und missbrauchsfreien Kontaktweg.
         </p>
         <p>
             Wir nutzen insbesondere: <br>
-            <a class="gold" href="https://jquery.com/">Dienste von jQuery (OpenJS Foundation)</a><br>
+            <a class="gold" href="https://www.cloudflare.com/de-de/privacypolicy/" rel="noopener">Cloudflare Turnstile (Cloudflare, Inc.)</a><br>
         </p>
-        
+
+        <h3 class="gold">9. Erweiterungen für die Website</h3>
+        <p>
+            Wir verwenden Erweiterungen für unsere Website, um zusätzliche Funktionen nutzen zu können. Zurzeit binden wir hierfür keine Skripte von Dritten ein.
+        </p>
+
         <h3 class="gold">10. Erfolgs- und Reichweitenmessung</h3>
         <p>
             Wir nutzen Dienste und Programme, um zu ermitteln, wie unser Online-Angebot genutzt wird. In diesem Rahmen können wir beispielsweise den Erfolg und die Reichweite unserer Aktivitäten und Tätigkeiten sowie die Wirkung von Verlinkungen Dritter auf unsere Website messen. Wir können aber beispielsweise auch ausprobieren und vergleichen, wie unterschiedliche Versionen unseres Online-Angebotes oder Teile unseres Online-Angebotes genutzt werden («A/B-Test»-Methode). Aufgrund der Ergebnisse der Erfolgs- und Reichweitenmessung können wir insbesondere Fehler beheben, beliebte Inhalte stärken oder Verbesserungen an unserem Online-Angebot vornehmen.
@@ -194,16 +190,15 @@
             <br><br>
             Letzte Aktualisierung: 31.08.2023
         </p>
-        
 
-        
-    </section>
-      
-    
-    <?php require_once 'nav.php'; ?>
-    <?php require_once 'footer.php'; ?>
-    <div class="starry-sky"></div>
-    <?php require_once 'script.php'; ?>
-    <?php require_once 'googleanalytics.php'; ?>
+
+    </main>
+
+    <?php require __DIR__ . '/footer.php'; ?>
+    <div class="starry-sky" aria-hidden="true"></div>
+    <?php
+    require __DIR__ . '/script.php';
+    require __DIR__ . '/googleanalytics.php';
+    ?>
 </body>
 </html>

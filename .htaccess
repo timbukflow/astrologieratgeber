@@ -1,4 +1,96 @@
-RewriteEngine on 
-RewriteCond %{REQUEST_FILENAME} !-d 
-RewriteCond %{REQUEST_FILENAME}\.php -f 
-RewriteRule ^(.*)$ $1.php
+# ─────────────────────────────────────────────────────────────────────────
+#  Astrologieratgeber — Server-Konfiguration (Apache / Hostpoint)
+# ─────────────────────────────────────────────────────────────────────────
+
+RewriteEngine on
+
+# ── HTTPS erzwingen ──────────────────────────────────────────────────────
+# Ohne das sind http:// und https:// zwei Adressen mit identischem Inhalt.
+# Auskommentiert lassen, solange die Testumgebung kein Zertifikat hat.
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# ── www entfernen ────────────────────────────────────────────────────────
+# Legt fest, dass astrologieratgeber.ch die kanonische Adresse ist und
+# www.astrologieratgeber.ch dorthin weiterleitet (verhindert doppelten Inhalt).
+# Vor dem Livegang zusammen mit dem HTTPS-Block aktivieren.
+# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+# RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# ── Saubere URLs: /preise statt /preise.php ──────────────────────────────
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# /index.php und /index → / (nur eine Adresse fuer die Startseite)
+RewriteCond %{THE_REQUEST} \s/index(\.php)?[\s?] [NC]
+RewriteRule ^ / [R=301,L]
+
+# Sitemap und robots.txt werden erzeugt, damit sie nie veralten und die
+# Testumgebung zuverlaessig aus dem Index bleibt.
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+RewriteRule ^robots\.txt$ robots.php [L]
+
+# ── Eigene Fehlerseite ───────────────────────────────────────────────────
+ErrorDocument 404 /404.php
+
+# ── Interna nicht ausliefern ─────────────────────────────────────────────
+# config.php enthaelt Schluessel; die Includes sind keine eigenstaendigen
+# Seiten und sollen nicht direkt aufrufbar sein.
+<FilesMatch "^(config|config\.example|bootstrap|services|form|form-fields|service-page|head|jsonld|nav|footer|footernav|script|googleanalytics)\.php$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "\.(md|log|json|gitignore|DS_Store)$">
+    Require all denied
+</FilesMatch>
+<Files "WHATTODOBEFORGOONLINE.php">
+    Require all denied
+</Files>
+
+Options -Indexes
+ServerSignature Off
+
+# ── Sicherheits-Header ───────────────────────────────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+
+    # HSTS erst aktivieren, wenn HTTPS steht und laeuft — ein voreiliges
+    # max-age sperrt Besucher aus, falls das Zertifikat Probleme macht.
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+    # Content-Security-Policy: erlaubt genau die Dienste, die wir einbinden.
+    # 'unsafe-inline' ist noetig, solange der Consent-Code inline im HTML steht.
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-src https://challenges.cloudflare.com; form-action 'self'; base-uri 'self'; object-src 'none'"
+
+    Header unset X-Powered-By
+</IfModule>
+
+# ── Kompression ──────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+    AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+    AddOutputFilterByType DEFLATE application/json application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# ── Browser-Cache ────────────────────────────────────────────────────────
+# CSS und JS haengen am ?v=<Dateidatum>, koennen also lange gecacht werden:
+# aendert sich die Datei, aendert sich die URL.
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault                          "access plus 1 month"
+    ExpiresByType text/css                  "access plus 1 year"
+    ExpiresByType application/javascript    "access plus 1 year"
+    ExpiresByType image/svg+xml             "access plus 1 year"
+    ExpiresByType image/jpeg                "access plus 1 year"
+    ExpiresByType image/png                 "access plus 1 year"
+    ExpiresByType image/x-icon              "access plus 1 year"
+    ExpiresByType image/webp                "access plus 1 year"
+    ExpiresByType text/html                 "access plus 0 seconds"
+</IfModule>
+
+AddDefaultCharset UTF-8

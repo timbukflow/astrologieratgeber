@@ -1,15 +1,15 @@
-<section class="angebotnavfooter maincontent">
-        <div class="sun">
-            <div class="innercirclesun"></div>
-            <div class="outercirclesun">
-                <img src="img/sun-circle.svg" alt="">
-            </div>
+<?php
+?>
+<section class="angebotnavfooter maincontent" aria-label="Angebote">
+    <div class="sun" aria-hidden="true">
+        <div class="innercirclesun"></div>
+        <div class="outercirclesun">
+            <img src="img/sun-circle.svg" alt="" width="300" height="300">
         </div>
-        <div class="angebot">
-            <a href="stundenastrologie">Stundenastrologie</a>
-            <a href="geburtshoroskop">Geburtshoroskop</a>
-            <a href="jahresprognose">Jahresprognose</a>
-            <a href="relokationshoroskop">Relokationshoroskop</a>
-            <a href="astrokartographie">Astrokartographie</a>
-        </div>
+    </div>
+    <div class="angebot">
+        <?php foreach (services() as $slug => $item): ?>
+            <a href="<?= e($slug) ?>"><?= e($item['name']) ?></a>
+        <?php endforeach; ?>
+    </div>
 </section>

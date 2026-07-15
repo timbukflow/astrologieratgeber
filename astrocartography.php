@@ -1,3 +1,3 @@
 <?php
-$service = 'geburtshoroskop';
+$service = 'astrocartography';
 require __DIR__ . '/service-page.php';

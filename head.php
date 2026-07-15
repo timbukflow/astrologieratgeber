@@ -1,25 +1,34 @@
-<meta name="author" content="Stefan Haas">
-<meta name="robots" content="index, follow" /> 
-<meta http-equiv="cache-control" content="max-age=0" />
-<meta http-equiv="cache-control" content="no-cache" />
-<meta http-equiv="expires" content="0" />
-<meta http-equiv="pragma" content="no-cache" />
-<meta property="og:title" content="Astrologie Ratgeber | Stefan Haas">
-<meta property="og:description" content="Astrologie eröffnet uns die Möglichkeit, uns selbst besser zu verstehen. Als aufschlussreicher Ratgeber begleitet sie uns und weist uns den Weg auf unserer individuellen Lebensreise.">
+<?php
+$page_title       = $page_title       ?? SITE_NAME . ' | ' . SITE_OWNER;
+$page_description = $page_description ?? 'Astrologie eröffnet uns die Möglichkeit, uns selbst besser zu verstehen. Als aufschlussreicher Ratgeber begleitet sie uns und weist uns den Weg auf unserer individuellen Lebensreise.';
+$page_url         = $page_url         ?? SITE_URL . '/';
+$page_image       = $page_image       ?? SITE_URL . '/img/og-image.jpg';
+?>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><?= e($page_title) ?></title>
+<meta name="description" content="<?= e($page_description) ?>">
+<link rel="canonical" href="<?= e($page_url) ?>">
+<meta name="author" content="<?= e(SITE_OWNER) ?>">
+
+<?php
+$noindex = config('staging') || !empty($page_noindex);
+?>
+<meta name="robots" content="<?= $noindex ? 'noindex, nofollow' : 'index, follow' ?>">
+
+<meta property="og:site_name" content="<?= e(SITE_NAME) ?>">
+<meta property="og:title" content="<?= e($page_title) ?>">
+<meta property="og:description" content="<?= e($page_description) ?>">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://astrologieratgeber.ch">
-<meta property="og:image" content="https://astrologieratgeber.ch/img/og-image.jpg">
+<meta property="og:url" content="<?= e($page_url) ?>">
+<meta property="og:image" content="<?= e($page_image) ?>">
 <meta property="og:locale" content="de_CH">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Astrologie Ratgeber | Stefan Haas">
-<meta name="twitter:description" content="Astrologie eröffnet uns die Möglichkeit, uns selbst besser zu verstehen. Als aufschlussreicher Ratgeber begleitet sie uns und weist uns den Weg auf unserer individuellen Lebensreise.">
-<meta name="twitter:image" content="https://astrologieratgeber.ch/img/twitter-image.jpg">
+<meta name="twitter:title" content="<?= e($page_title) ?>">
+<meta name="twitter:description" content="<?= e($page_description) ?>">
+<meta name="twitter:image" content="<?= e($page_image) ?>">
+
 <meta name="format-detection" content="telephone=yes">
-<meta property="business:contact_data:street_address" content="Ackerstrasse 56">
-<meta property="business:contact_data:locality" content="Uster">
-<meta property="business:contact_data:region" content="8610">
-<meta property="business:contact_data:postal_code" content="8610">
-<meta property="business:contact_data:country_name" content="Switzerland">
 
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -29,7 +38,10 @@
 <meta name="msapplication-TileColor" content="#041f41">
 <meta name="theme-color" content="#041f41">
 
-<link rel="stylesheet" href="main.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/main.css?v=<?= @filemtime(__DIR__ . '/main.css') ?: '2' ?>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"></noscript>
+
+<?php require __DIR__ . '/jsonld.php'; ?>
