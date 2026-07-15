@@ -17,11 +17,22 @@
   box-sizing: border-box;
 }
 
+/* Ohne Hintergrund am <html> zeigt iOS beim Ueberscrollen ("Gummiband") und
+   in den Bereichen um Adress- und Statusleiste Weiss. Der Verlauf am <body>
+   deckt diese Flaechen nicht ab — sie gehoeren dem <html>. */
+html {
+  background-color: var(--skydark);
+}
+
 body {
   margin: 0;
   padding: 0;
   background: var(--skydark);
   background: linear-gradient(0deg, var(--skylight) 20%, var(--skydark) 100%);
+  /* Der Verlauf endet unten in skylight. Damit der Bereich unterhalb des
+     Inhalts nicht in das dunkle html-Blau kippt, faerbt dieser Schatten die
+     Flaeche unter dem Verlauf in derselben Farbe weiter. */
+  box-shadow: 0 100vh 0 100vh var(--skylight);
 }
 body.fixed {
   width: 100%;
@@ -162,6 +173,16 @@ nav.nav-scrolled {
   transition: color 0.3s ease-in-out;
 }
 
+/* Die globale Schriftregel setzt hyphens:auto — sinnvoll im Fliesstext,
+   nicht in einem Nav-Button. */
+.nav-list li a,
+#angebotBtn,
+.angebot a {
+  hyphens: manual;
+  -webkit-hyphens: manual;
+  -ms-hyphens: manual;
+}
+
 .nav-list li:hover {
   border-color: var(--yellowlight);
 }
@@ -238,6 +259,7 @@ li.nav-resp {
 }
 
 .angebotsun {
+  position: relative;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -363,14 +385,23 @@ footer.fade {
 }
 
 .sun {
+  position: relative;
   margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* top/left/margin statt der "statischen Position": Ohne diese Angaben landet
+   der Punkt dort, wo er ohne position:absolute stuende. Chrome wendet darauf
+   die Flex-Zentrierung an, Safari nicht — dort sass der Punkt oben links.
+   Negative Margins statt translate(-50%,-50%), weil transform bereits von der
+   sun-Animation belegt ist. */
 .innercirclesun {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -30px 0 0 -30px;
   height: 60px;
   width: 60px;
   border-radius: 60px;
@@ -943,9 +974,11 @@ footer a {
     visibility: visible;
     transition: opacity 0.5s ease-in-out, visibility 0s;
   }
+  /* Vorher 20% seitlich: Auf einem 320px-Handy blieben davon nur ~190px
+     fuer die Pille — "Partnerschafts-Horoskop" wurde getrennt. */
   .nav-list {
     display: flex;
-    padding: 120px 20%;
+    padding: 120px 24px;
     height: 100vh;
     margin: 0;
     background-color: var(--skydark);
