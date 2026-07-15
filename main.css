@@ -17,6 +17,14 @@
   box-sizing: border-box;
 }
 
+/* Bilder tragen ihre Groesse als width-Attribut im HTML (noetig gegen
+   Layout-Springen beim Laden). Ohne diese Regel halten sie sich daran, auch
+   wenn ihr Container schmaler ist — und ragen auf dem Handy heraus. */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* Ohne Hintergrund am <html> zeigt iOS beim Ueberscrollen ("Gummiband") und
    in den Bereichen um Adress- und Statusleiste Weiss. Der Verlauf am <body>
    deckt diese Flaechen nicht ab — sie gehoeren dem <html>. */
@@ -418,6 +426,17 @@ footer.fade {
 
 .outercirclesun {
   width: 300px;
+}
+
+/* Ohne diese Regel behaelt das Bild die 300px aus seinem width-Attribut, auch
+   wenn der Container unter 450px auf 270px schrumpft — es ragte 30px heraus
+   und sass dadurch 15px neben dem Punkt.
+   display:block entfernt zugleich den Zeilenabstand unter dem Bild, der die
+   Sonne um 2px zu tief sitzen liess. */
+.outercirclesun img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .line {

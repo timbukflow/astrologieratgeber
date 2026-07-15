@@ -29,9 +29,15 @@ $page_jsonld      = 'service';
         <?php endforeach; ?>
 
         <?php if (!empty($svc['image'])): ?>
+            <?php
+            // Masse aus der Datei lesen statt sie im Markup zu behaupten: Sie
+            // reservieren den Platz vor dem Laden. Stimmt das Verhaeltnis
+            // nicht, springt das Layout genau dann, wenn das Bild ankommt.
+            [$img_w, $img_h] = svg_size($svc['image']['src']);
+            ?>
             <div class="astromap">
                 <img src="<?= e($svc['image']['src']) ?>" alt="<?= e($svc['image']['alt']) ?>"
-                     width="920" height="500" loading="lazy" decoding="async">
+                     width="<?= $img_w ?>" height="<?= $img_h ?>" loading="lazy" decoding="async">
             </div>
         <?php endif; ?>
 

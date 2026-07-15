@@ -110,6 +110,31 @@ function service(string $slug): array
     return $services[$slug] + ['slug' => $slug];
 }
 
+/**
+ * Breite und Hoehe einer SVG aus ihrer viewBox. Fuer die width/height-Attribute
+ * am <img>: Sie reservieren den Platz, bevor das Bild geladen ist, und
+ * verhindern damit das Springen des Layouts.
+ * Ergebnis wird gecacht — die Datei wird pro Aufruf hoechstens einmal gelesen.
+ */
+function svg_size(string $path, array $fallback = [900, 540]): array
+{
+    static $cache = [];
+    if (isset($cache[$path])) {
+        return $cache[$path];
+    }
+
+    $file = __DIR__ . '/' . ltrim($path, '/');
+    $head = is_file($file) ? (string) file_get_contents($file, false, null, 0, 600) : '';
+
+    if (preg_match('/viewBox="\s*[\d.-]+\s+[\d.-]+\s+([\d.]+)\s+([\d.]+)/', $head, $m)) {
+        $cache[$path] = [(int) round((float) $m[1]), (int) round((float) $m[2])];
+    } else {
+        $cache[$path] = $fallback;
+    }
+
+    return $cache[$path];
+}
+
 function format_hours(float $h): string
 {
     return rtrim(rtrim(number_format($h, 1, '.', ''), '0'), '.');
