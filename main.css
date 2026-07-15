@@ -756,7 +756,12 @@ input:focus {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 340px;
+  width: 540px;
+  /* Auf schmalen Geraeten ragte eine feste Breite ueber den Rand hinaus —
+     die Angaben unten halten das Popup mit 20px Luft im Viewport. */
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
   transform: translate(-50%, -50%);
   background-color: var(--yellowlight);
   padding: 30px;
@@ -769,16 +774,20 @@ input:focus {
   color: var(--skydark);
 }
 
+/* Vorher: weisse Flaeche, Hover auf yellowlight — also exakt die
+   Hintergrundfarbe des Popups. Der Button verschwand beim Drueberfahren. */
 #closePopup {
-  background-color: white ;
+  background: none;
+  border: 2px solid var(--skydark);
   width: 100%;
   margin-top: 25px;
   text-align: center;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 #closePopup:hover {
-  background-color: var(--yellowlight);
+  background-color: var(--skydark);
+  color: var(--yellowlight);
 }
 
 .blurpop {
