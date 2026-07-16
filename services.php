@@ -63,7 +63,7 @@ return [
         'variants' => [
             [
                 'name'    => 'Jahresprognose',
-                'hours'   => 2.5,
+                'hours'   => 2,
                 'what'    => 'Als Ihr Astrologe studiere und analysiere ich Ihre Jahresprognose in Bezug auf bedeutende Konstellationen für ein Jahr im Voraus. Anschliessend nehmen wir uns Zeit für eine persönliche Besprechung, die auf Wunsch als "Voice Record" festgehalten werden kann. Diese Session kann auch bequem online über Plattformen wie Zoom, Teams oder Skype abgehalten werden.',
                 'summary' => 'Als Ihr Astrologe studiere und analysiere ich Ihre Jahresprognose in Bezug auf bedeutende Konstellationen für ein Jahr im Voraus. Anschliessend nehmen wir uns Zeit für eine persönliche Besprechung, die auf Wunsch als "Voice Record" festgehalten werden kann.',
             ],
@@ -112,7 +112,7 @@ return [
         'variants' => [
             [
                 'name'    => 'Relokationshoroskop',
-                'hours'   => 3,
+                'hours'   => 2,
                 'what'    => 'Als Ihr Astrologe studiere und analysiere ich Ihr Relokationshoroskop und vergleiche es mit Ihrem Geburtshoroskop. Anschliessend nehmen wir uns Zeit für eine persönliche Besprechung, die auf Wunsch als "Voice Record" festgehalten werden kann. Diese Session kann auch bequem online über Plattformen wie Zoom, Teams oder Skype abgehalten werden.',
                 'summary' => 'Als Ihr Astrologe studiere und analysiere ich Ihr Relokationshoroskop und vergleiche es mit Ihrem Geburtshoroskop. Anschliessend nehmen wir uns Zeit für eine persönliche Besprechung, die auf Wunsch als "Voice Record" festgehalten werden kann.',
             ],
@@ -137,7 +137,7 @@ return [
         'variants' => [
             [
                 'name'    => 'Astrocartography',
-                'hours'   => 2.5,
+                'hours'   => 2,
                 'what'    => 'Als Ihr Astrologe studiere und analysiere ich Ihre Astrocartography in Bezug auf Ihre bedeutendsten Standorte oder Ihr spezifisches Anliegen. Anschliessend nehmen wir uns Zeit für eine persönliche Besprechung, die auf Wunsch als "Voice Record" festgehalten werden kann. Diese Session kann auch bequem online über Plattformen wie Zoom, Teams oder Skype abgehalten werden.',
                 'summary' => 'Als Ihr Astrologe studiere und analysiere ich Ihre Astrocartography in Bezug auf Ihre bedeutendsten Standorte oder Ihr spezifisches Anliegen. Anschliessend nehmen wir uns Zeit für eine persönliche Besprechung, die auf Wunsch als "Voice Record" festgehalten werden kann.',
             ],

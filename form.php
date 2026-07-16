@@ -9,14 +9,10 @@ const WUNSCHTAGE = [
     'mi' => 'Mittwoch',
     'do' => 'Donnerstag',
     'fr' => 'Freitag',
-    'sa' => 'Samstag',
 ];
 
-const WUNSCHZEITEN = [
-    'vormittag'  => 'Vormittag (09–12 Uhr)',
-    'nachmittag' => 'Nachmittag (13–17 Uhr)',
-    'abend'      => 'Abend (18–21 Uhr)',
-];
+/** Feste Sprechzeit — wird angezeigt, nicht abgefragt. */
+const TERMINZEIT = 'Termine finden vormittags zwischen 8 und 12 Uhr statt.';
 
 $errors = [];
 
@@ -33,8 +29,7 @@ if (!empty($svc['partner_fields'])) {
 }
 
 $form_values = array_fill_keys($text_fields, '');
-$form_values['wunschtage']   = [];
-$form_values['wunschzeiten'] = [];
+$form_values['wunschtage'] = [];
 
 function valid_date(string $value): bool
 {
@@ -142,8 +137,7 @@ foreach ($text_fields as $field) {
     $form_values[$field] = trim((string) ($_POST[$field] ?? ''));
 }
 
-$form_values['wunschtage']   = pick_options($_POST['wunschtage'] ?? [], WUNSCHTAGE);
-$form_values['wunschzeiten'] = pick_options($_POST['wunschzeiten'] ?? [], WUNSCHZEITEN);
+$form_values['wunschtage'] = pick_options($_POST['wunschtage'] ?? [], WUNSCHTAGE);
 
 $required_labels = [
     'vorname'      => 'Vorname',
@@ -249,8 +243,7 @@ if ($fragen) {
 
 $lines[] = '';
 $lines[] = '— Terminwunsch —';
-$lines[] = 'Tage:   ' . option_labels($form_values['wunschtage'], WUNSCHTAGE);
-$lines[] = 'Zeiten: ' . option_labels($form_values['wunschzeiten'], WUNSCHZEITEN);
+$lines[] = 'Tage: ' . option_labels($form_values['wunschtage'], WUNSCHTAGE);
 
 if ($form_values['nachricht'] !== '') {
     $lines[] = '';

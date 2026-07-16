@@ -101,10 +101,11 @@ function checkbox_group(string $name, string $legend, array $options, array $sel
     question_field('frage3', '3. Frage', $form_values, $errors);
     ?>
 
-    <p class="fieldgroup gold">Wann passt es Ihnen? <span class="fieldgroup-note">Freiwillig, Mehrfachauswahl möglich</span></p>
+    <p class="fieldgroup gold">Wann passt es Ihnen?
+        <span class="fieldgroup-note"><?= e(TERMINZEIT) ?> Freiwillig, Mehrfachauswahl möglich.</span>
+    </p>
     <?php
     checkbox_group('wunschtage', 'An welchen Tagen?', WUNSCHTAGE, $form_values['wunschtage']);
-    checkbox_group('wunschzeiten', 'Zu welcher Tageszeit?', WUNSCHZEITEN, $form_values['wunschzeiten']);
     ?>
 
     <fieldset>
